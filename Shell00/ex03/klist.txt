@@ -1,0 +1,5 @@
+Credentials cache: API:27177EE2-AC41-4331-A04E-E00E75095743
+        Principal: alemsafi@1337.MA
+
+  Issued                Expires               Principal
+Aug  2 12:52:25 2021  Aug  2 22:52:20 2021  krbtgt/1337.MA@1337.MA
