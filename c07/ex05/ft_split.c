@@ -81,7 +81,7 @@ int	fill_array(int word_count, char *str, char *charset, char **arr)
 		while (is_in_charset(str[i], charset) && str[i])
 			i++;
 		j = i;
-		while (!(is_in_charset(str[j], charset) && str[j]))
+		while (!(is_in_charset(str[j], charset)) && str[j])
 			j++;
 		arr[k] = create_word(str, i, j);
 		i = j + 1;
@@ -93,23 +93,12 @@ int	fill_array(int word_count, char *str, char *charset, char **arr)
 char	**ft_split(char *str, char *charset)
 {
 	char	**arr;
-	int		word_count;
 	int		k;
 
-	if (charset[0] == '\0')
-	{
-		arr = (char **)malloc(sizeof(char *) * 2);
-		if (arr == ((void *)0))
-			return ((void *)0);
-		arr[0] = str;
-		arr[1] = 0;
-		return (arr);
-	}
-	word_count = ft_word_count(str, charset);
-	arr = (char **)malloc(sizeof(char *) * (word_count + 1));
+	arr = (char **)malloc(sizeof(char *) * (ft_word_count(str, charset) + 1));
 	if (arr == ((void *)0))
 		return ((void *)0);
-	k = fill_array(word_count, str, charset, arr);
+	k = fill_array(ft_word_count(str, charset), str, charset, arr);
 	arr[k] = 0;
 	return (arr);
 }

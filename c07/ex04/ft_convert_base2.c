@@ -75,8 +75,8 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
 	int	n;
 
-	n = ft_atoi_base(nbr, base_from);
 	if (is_invalide(base_from) || is_invalide(base_to))
 		return (NULL);
+	n = ft_atoi_base(nbr, base_from);
 	return (convert_base(n, base_to));
 }
